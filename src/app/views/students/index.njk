@@ -1,0 +1,59 @@
+{% extends 'layouts.njk' %}
+
+
+{% block content %}
+
+<div class="card table-container">
+
+<div class="header">
+        <a href="/students/create">New</a>
+        <form action="/students" method="GET">
+            <input 
+            type="text"
+            name="filter"
+            placeholder="Name or email"
+            value={{filter}}
+            >
+            <button type="submit">Filter</button>
+        </form>
+    </div>
+
+    <table width="100%">
+        <thead>
+            <tr>
+                <th>Student</th>
+                <th>E-mail</th>
+                <th>Education</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for student in students %}
+            <tr>
+                <td>
+                    <span 
+                    style="background-image: url({{student.avatar_url}})">         
+                    </span>
+                    {{student.name}}
+                </td>
+                <td>
+                    {{student.email}}
+                </td>
+                <td>
+                    {{student.education_level}}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <div class="pagination"
+        data-page={{pagination.page}}
+        data-total={{pagination.total}}
+        data-filter={{filter}}
+    ></div>
+
+
+</div>
+
+{% endblock content %}
+

@@ -1,0 +1,353 @@
+@import "https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap";
+
+*{
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+:root {
+    --color-rocket: #7159c1;
+    --color-launch: #F8952D;
+    --color-cyan: cyan;
+}
+
+body {
+    background-color: gainsboro;
+    font-family: 'Roboto', sans-serif;
+    position: relative;
+}
+
+header {
+    background-color: var(--color-rocket);
+    width: 100%;
+    padding: 32px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.links {
+    font-size: 22px;
+
+}
+
+.links a + a {
+    margin-left: 32px;
+}
+
+.links a {
+    text-decoration: none;
+    color: white;
+    position: relative;
+}
+
+.links a.active {
+    font-weight: bold;
+    color: cyan;
+}
+
+.links a:hover {
+    color: cyan;   
+}
+
+.links a::after {
+    content: "";
+    width: 0;
+    height: 2px;
+    background-color: cyan;
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+}
+
+.links a:hover::after {
+    width: 100%;
+    transition: width 400ms ease-in-out;
+}
+
+/* CARD */
+
+.card {
+    background-color: white;
+    width: 800px;
+    min-height: 400px;
+    margin: 45px auto;
+    display: grid;
+    grid-template-columns: 40% 1fr;
+    box-shadow: 0px 2px 8px -2px rgba(0, 0, 0, 0.4);
+    animation-name: up 800ms ease-out;
+    position: relative;
+    /* animation-duration: 800ms;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-out;
+    animation-play-state: running; */
+}
+
+@keyframes up {
+    0% {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.details {
+    padding: 32px;
+}
+
+.details .item {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 16px 0;
+}
+
+.details .item:last-child {
+    border: none;
+}
+
+.details h3,
+.details .item div:nth-child(1) {
+    color: #777;
+    font-size: 14px;
+    line-height: 24px;
+    letter-spacing: 0.7px;
+    font-weight: normal;
+}
+
+
+.details .item div:nth-child(2) {
+    color: #222;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.details h3 {
+    text-transform: uppercase;
+    font-weight: bold;
+    color: darkcyan;
+}
+
+.details .item span {
+    font-size: 12px;
+    padding: 8px 16px;
+    background-color: darkcyan;
+    border-radius: 16px;
+    color: white;
+    font-weight: bold;
+    margin-right: 4px;
+    margin-top: 8px;
+    display: inline-block;
+    text-transform: uppercase;
+}
+
+/* FORM */
+
+select,
+input {
+    width: 100%;
+    outline: none;
+    color: #222;
+    font-weight: normal;
+    font-size: 18px;      
+}
+
+input[type="radio"] {
+    width: initial;
+    margin-right: 4px;
+    vertical-align: middle;
+}
+
+input[type="date"] {
+    font-size: 16px;
+    font-weight: bold;
+    width: 100%;
+    padding: 2px 0;
+}
+
+input::placeholder {
+    font-size: 16px;
+    font-weight: normal;
+    width: 100%;
+    padding: 2px 0;
+}
+
+button[type="submit"],
+a.button {
+    padding: 8px 32px;
+    background-color: var(--color-cyan);
+    color: black;
+    border-radius: 4px;
+    margin-top: 32px;
+    width: 100%;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+a.button {
+    display: block;
+    box-sizing: border-box;
+    text-align: center;
+    text-decoration: none;
+}
+
+#form-delete button {
+    background-color: red;
+    color: white;
+    width: 24%;
+    position: absolute;
+    bottom: 32px;
+    right: 16px;
+}
+
+#save {
+    width: 45%;
+}
+
+/* INDEX TEACHERS */
+
+.table-container {
+    display: block;
+    padding: 40px;
+    box-sizing: border-box;
+}
+
+.table-container table {
+    border-spacing: 0;
+}
+
+.table-container thead tr th {
+    text-align: left;
+}
+
+td, th {
+    padding: 16px;
+    border-bottom: 1px solid #dddddd;
+}
+
+th {
+    text-transform: uppercase;
+    color: #777;
+    font-size: 14px;
+}
+
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+tbody tr td:first-child {
+    display: grid;
+    grid-template-columns: 64px 1fr;
+    align-items: center;
+}
+
+tbody tr td:first-child span {
+    width: 40px;
+    height: 40px;
+    background-position: center;
+    background-size: cover;
+    border-radius: 50%;
+    box-shadow: 3px 1px 6px -4px black;
+    border: 2px solid white;
+}
+
+tbody tr td:last-child a,
+.table-container a {
+    background-color: cyan;
+    padding: 8px 16px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #333;
+    font-size: 12px;
+    border-radius: 4px;
+    text-align: center;
+    margin: 0;
+}
+
+.table-container a {
+    margin-bottom: 16px;
+    display: inline-block;
+}
+
+.table-container thead tr th:last-child,
+td:last-child {
+    text-align: center;
+}
+
+.table-container tbody tr td:nth-child(2) span {
+    font-size: 12px;
+    padding: 8px 16px;
+    background-color: darkcyan;
+    border-radius: 16px;
+    color: white;
+    font-weight: bold;
+    margin-right: 4px;
+    margin-top: 8px;
+    text-transform: uppercase;   
+}
+
+/* FILTER */
+
+.table-container .header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    margin-bottom: 32px;
+}
+
+.table-container .header a {
+    margin: 0;   
+    width: 100px;
+}
+
+.table-container .header form {
+    display: grid;
+    grid-template-columns: 1fr 120px;
+    align-items: center;
+    grid-gap: 8px;
+    color: #eee;
+}
+
+.table-container .header form input {
+    border: 1px solid #eee;
+    padding: 4px 8px;
+    box-sizing: border-box;
+}
+
+.table-container .header form button {
+    margin: 0;
+    font-weight: bold;
+    color: #333;
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+/* PAGINATION */
+
+.table-container {
+    display: grid;
+    grid-template: 64px 1fr 64px / 1fr
+}
+
+.table-container .header {
+    margin: 0;
+    align-self: start;
+}
+
+.table-container .pagination {
+    margin: 0;
+    align-self: end;
+    justify-self: center;
+}
+
+.pagination a,
+.pagination span {
+    color: blue;
+    text-decoration: none;
+    margin-right: 16px;
+}
+
+.pagination a:hover {
+    filter: brightness(0.9);
+}

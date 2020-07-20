@@ -1,0 +1,101 @@
+   <div class="item">
+        <div>Avatar URL</div>
+        <div>
+            <input 
+            type="url" 
+            name="avatar_url" 
+            placeholder="http://"
+            value="{{ student.avatar_url }}">
+        </div>
+    </div>
+
+    <div class="item">
+        <div>Student Name</div>
+        <div>
+            <input 
+            type="text" 
+            name="name" 
+            placeholder="My name"
+            value="{{ student.name }}">
+        </div>
+    </div>
+
+    <div class="item">
+        <div>E-mail</div>
+        <div>
+            <input 
+            type="email" 
+            name="email" 
+            placeholder="email@host.com"
+            value="{{ student.email }}">
+        </div>
+    </div>
+
+    <div class="item">
+        <div>Birthday</div>
+        <div>
+            <input type="date" 
+            name="birth_date" 
+            placeholder=""
+            value="{{ student.birth_date }}">
+        </div>
+    </div>
+
+    <div class="item">
+        <div>Scholar year</div>
+        <div>
+            <select name="education_level">
+                <option 
+                    value="High School"
+                    {% if student.education_level == "High School" %}
+                        selected
+                    {% endif %}>High School
+                </option>
+                <option 
+                    value="College"
+                    {% if student.education_level == "College" %}
+                        selected
+                    {% endif %}>College
+                </option>
+                <option 
+                    value="Master's"
+                    {% if student.education_level == "Master's" %}
+                        selected
+                    {% endif %}>Master's
+                </option>
+                <option 
+                    value="Doctorate"
+                    {% if student.education_level == 'Doctorate' %}
+                        selected
+                    {% endif %}>Doctorate
+                </option>
+            </select>
+        </div>
+    </div>
+
+    <div class="item">
+        <div>Weekly classroom hours</div>
+        <div>
+            <input type="number" 
+            name="course_hours"
+            placeholder="Course load in hours."
+            value="{{ student.course_hours }}">
+        </div>
+    </div>
+
+    <div class="item">
+        <div>Teacher</div>
+        <div>
+            <select name="teacher">
+                {% for teacher in teacherOptions %}
+                <option value="{{ teacher.id }}" 
+                {% if student.teacher_id == teacher.id %}
+                selected    
+                {% endif %}>{{teacher.name}}
+                </option>
+                {% endfor %}
+            </select>
+        </div>
+    </div>
+
+    <button id="save" type="submit">Save</button>

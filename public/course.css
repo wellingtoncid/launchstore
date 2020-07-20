@@ -1,0 +1,45 @@
+.courses {
+    max-width: 800px;
+    margin: 40px auto;
+}
+
+.course {
+    height: 450px;
+    text-align: center;
+}    
+
+.course_image-container {
+    margin: 40px auto;
+    padding: 15px;
+}
+
+.course_description {
+    font-size: 26px;
+    line-height: 36px;
+    font-weight: bold;
+    color: white;
+    padding-bottom: 40px;
+}
+
+.course_info {
+    text-decoration: none;
+    color: chartreuse;
+}
+
+.course_price { 
+    margin: 20px auto;
+}
+
+.redirect a {
+    text-decoration: none;
+    color: chartreuse;
+    font-size: 16px;
+    line-height: 26px;
+    font-weight: 600;
+}
+
+.redirect a:hover {
+    color: white;
+    transition: 400ms;
+    text-decoration: underline;
+}
