@@ -3,29 +3,20 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="icon" href="/public/assets/favicon.ico" type="image/x-icon"/>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" href="/style.css">
 
         {% block head %}
-            <title>School Cool</title>
+            <title>Launchstore</title>
         {% endblock %}
 
     </head>
     <body>
-        <header>
-            <div class="links">
-                <a href="/teachers">Teachers</a>
-                <a href="/students">Students</a>
-            </div>
-
-        </header>
+       {% include "parts/header.njk" %}
 
     {% block content %}{% endblock %}
        
-    <div class="footer">
-        <p>&copy; All rights reserved.</p>
-    </div>
-
-    <script src="/scripts.js"></script>
+    {% include "parts/footer.njk" %}
 
     </body>
 </html>

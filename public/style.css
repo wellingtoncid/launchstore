@@ -1,353 +1,187 @@
-@import "https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap";
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
-*{
+:root {
+    --primary-color: #fd961f;
+    --secondary-color: #211df7;
+}
+
+* {
     margin: 0;
     padding: 0;
+    text-decoration: none;
+    list-style-type: none;
+    box-sizing: border-box;
     border: none;
 }
 
-:root {
-    --color-rocket: #7159c1;
-    --color-launch: #F8952D;
-    --color-cyan: cyan;
+html, body {
+    min-height: 100vh;
+
 }
 
 body {
-    background-color: gainsboro;
     font-family: 'Roboto', sans-serif;
-    position: relative;
+    background-color: #f9f9f9;
 }
 
-header {
-    background-color: var(--color-rocket);
-    width: 100%;
-    padding: 32px;
-    text-align: center;
-    box-sizing: border-box;
+.container {
+    width: 90%;
+    margin: 0 auto;
+    max-width: 940px;
 }
 
-.links {
-    font-size: 22px;
-
-}
-
-.links a + a {
-    margin-left: 32px;
-}
-
-.links a {
-    text-decoration: none;
+.button {
+    background-color: var(--primary-color);
     color: white;
-    position: relative;
-}
-
-.links a.active {
-    font-weight: bold;
-    color: cyan;
-}
-
-.links a:hover {
-    color: cyan;   
-}
-
-.links a::after {
-    content: "";
-    width: 0;
-    height: 2px;
-    background-color: cyan;
-    position: absolute;
-    left: 0;
-    bottom: -4px;
-}
-
-.links a:hover::after {
+    display: block;
+    margin: 16px 0;
+    padding: 12px 16px;
     width: 100%;
-    transition: width 400ms ease-in-out;
+    border-radius: 4px;
+
+    /* para colocar botao para baixo */
+    align-self: end;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 16px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s;
 }
 
-/* CARD */
+.button:hover {
+    background-color: #c47114;
+}
 
-.card {
-    background-color: white;
-    width: 800px;
-    min-height: 400px;
-    margin: 45px auto;
+/* HEADER */
+header, footer {
+    background-color: black;
+    color: white;
+    width: 100%;
+    padding: 32px 0;
+    text-align: center;
+}
+
+header div.container {
     display: grid;
-    grid-template-columns: 40% 1fr;
-    box-shadow: 0px 2px 8px -2px rgba(0, 0, 0, 0.4);
-    animation-name: up 800ms ease-out;
-    position: relative;
-    /* animation-duration: 800ms;
-    animation-fill-mode: forwards;
-    animation-timing-function: ease-out;
-    animation-play-state: running; */
+    grid-template-columns: 220px auto 280px;
+    align-items: center;
+    grid-gap: 24px;
 }
 
-@keyframes up {
-    0% {
-        opacity: 0;
-        transform: translateY(10px);
-    }
-    100% {
-        opacity: 1;
-    }
+header div.container a {
+    justify-self: start;
 }
 
-.details {
-    padding: 32px;
+/* LOGO */
+.logo h1 {
+    color: white;
+    font-size: 36px;
+    line-height: 46px;
 }
 
-.details .item {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-    padding: 16px 0;
+.logo h2 {
+    color: var(--primary-color);
+    font-size: 14px;
+    line-height: 16px;
+    letter-spacing: 2px;
 }
 
-.details .item:last-child {
-    border: none;
+/* HEADER SEARCH */
+
+.search input {
+    width: 100%;
+    padding: 8px 16px;
+    border-radius: 2px;
+    font-size: 16px;
 }
 
-.details h3,
-.details .item div:nth-child(1) {
-    color: #777;
+/* PRIMARY MENU */
+nav.primary ul {
+    display: flex;
+    justify-content: space-between;
+}
+
+nav.primary ul li a {
+    display: flex;
+    align-items: center;
+    color: white;
+    transition: 300ms;
+}
+
+nav.primary ul li a:hover {
+    color: var(--primary-color)
+}
+
+nav.primary ul li a i {
+    margin-right: 8px;
+}
+
+/* PRODUCT FORM */
+section.form {
+    background-color: white;
+    padding: 32px 24px;
+    margin: 32px auto;
+    box-shadow: 2px 2px 2px -4px rgba(60, 60, 60, .9);
+    border: 1px solid #efefef;
+    border-radius: 4px;
+    max-width: 700px;
+    width: 90%;
+}
+
+section.form .header h3 {
     font-size: 14px;
     line-height: 24px;
     letter-spacing: 0.7px;
-    font-weight: normal;
-}
-
-
-.details .item div:nth-child(2) {
-    color: #222;
-    font-weight: bold;
-    font-size: 18px;
-}
-
-.details h3 {
     text-transform: uppercase;
     font-weight: bold;
-    color: darkcyan;
-}
-
-.details .item span {
-    font-size: 12px;
-    padding: 8px 16px;
-    background-color: darkcyan;
-    border-radius: 16px;
-    color: white;
-    font-weight: bold;
-    margin-right: 4px;
-    margin-top: 8px;
-    display: inline-block;
-    text-transform: uppercase;
-}
-
-/* FORM */
-
-select,
-input {
-    width: 100%;
-    outline: none;
-    color: #222;
-    font-weight: normal;
-    font-size: 18px;      
-}
-
-input[type="radio"] {
-    width: initial;
-    margin-right: 4px;
-    vertical-align: middle;
-}
-
-input[type="date"] {
-    font-size: 16px;
-    font-weight: bold;
-    width: 100%;
-    padding: 2px 0;
-}
-
-input::placeholder {
-    font-size: 16px;
-    font-weight: normal;
-    width: 100%;
-    padding: 2px 0;
-}
-
-button[type="submit"],
-a.button {
-    padding: 8px 32px;
-    background-color: var(--color-cyan);
-    color: black;
-    border-radius: 4px;
-    margin-top: 32px;
-    width: 100%;
-    font-size: 16px;
-    cursor: pointer;
-}
-
-a.button {
-    display: block;
-    box-sizing: border-box;
-    text-align: center;
-    text-decoration: none;
-}
-
-#form-delete button {
-    background-color: red;
-    color: white;
-    width: 24%;
-    position: absolute;
-    bottom: 32px;
-    right: 16px;
-}
-
-#save {
-    width: 45%;
-}
-
-/* INDEX TEACHERS */
-
-.table-container {
-    display: block;
-    padding: 40px;
-    box-sizing: border-box;
-}
-
-.table-container table {
-    border-spacing: 0;
-}
-
-.table-container thead tr th {
-    text-align: left;
-}
-
-td, th {
-    padding: 16px;
-    border-bottom: 1px solid #dddddd;
-}
-
-th {
-    text-transform: uppercase;
-    color: #777;
-    font-size: 14px;
-}
-
-tbody tr:last-child td {
-    border-bottom: none;
-}
-
-tbody tr td:first-child {
-    display: grid;
-    grid-template-columns: 64px 1fr;
-    align-items: center;
-}
-
-tbody tr td:first-child span {
-    width: 40px;
-    height: 40px;
-    background-position: center;
-    background-size: cover;
-    border-radius: 50%;
-    box-shadow: 3px 1px 6px -4px black;
-    border: 2px solid white;
-}
-
-tbody tr td:last-child a,
-.table-container a {
-    background-color: cyan;
-    padding: 8px 16px;
-    text-decoration: none;
-    text-transform: uppercase;
-    font-weight: bold;
-    color: #333;
-    font-size: 12px;
-    border-radius: 4px;
-    text-align: center;
-    margin: 0;
-}
-
-.table-container a {
+    color: var(--primary-color);
     margin-bottom: 16px;
-    display: inline-block;
 }
 
-.table-container thead tr th:last-child,
-td:last-child {
-    text-align: center;
+form .item {
+    margin-bottom: 16px;
 }
 
-.table-container tbody tr td:nth-child(2) span {
-    font-size: 12px;
-    padding: 8px 16px;
-    background-color: darkcyan;
-    border-radius: 16px;
-    color: white;
-    font-weight: bold;
-    margin-right: 4px;
-    margin-top: 8px;
-    text-transform: uppercase;   
-}
-
-/* FILTER */
-
-.table-container .header {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
-    margin-bottom: 32px;
-}
-
-.table-container .header a {
-    margin: 0;   
-    width: 100px;
-}
-
-.table-container .header form {
-    display: grid;
-    grid-template-columns: 1fr 120px;
-    align-items: center;
-    grid-gap: 8px;
-    color: #eee;
-}
-
-.table-container .header form input {
-    border: 1px solid #eee;
-    padding: 4px 8px;
-    box-sizing: border-box;
-}
-
-.table-container .header form button {
-    margin: 0;
-    font-weight: bold;
-    color: #333;
-    font-size: 12px;
+form .item > div:nth-child(1) {
+    color: #555;
     text-transform: uppercase;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 8px;
 }
 
-/* PAGINATION */
-
-.table-container {
-    display: grid;
-    grid-template: 64px 1fr 64px / 1fr
+form .item input[type="text"],
+form .item input[type="number"],
+form .item textarea,
+form .item select {
+    width: 100%;
+    padding: 8px 16px;
+    box-shadow: 2px 2px 2px -4px rgba(65, 65, 65, 0.5);
+    border: 1px solid #efefef;
+    border-radius: 4px;
+    font-size: 16px;
 }
 
-.table-container .header {
-    margin: 0;
-    align-self: start;
+form .item select {
+     /* permitir estilizacao no select */
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+
+    /* trazer de volta o icone lateral */
+    background-color: #fff;
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E'),
+      linear-gradient(to bottom, #ffffff 0%,#eeeeee 100%);
+    background-repeat: no-repeat;
+    background-position: right .7em top 50%, 0 0;
+    background-size: .65em auto, 100%;
 }
 
-.table-container .pagination {
-    margin: 0;
-    align-self: end;
-    justify-self: center;
+form .item textarea {
+    min-height: 150px;
 }
 
-.pagination a,
-.pagination span {
-    color: blue;
-    text-decoration: none;
-    margin-right: 16px;
-}
-
-.pagination a:hover {
-    filter: brightness(0.9);
+form .fields {
+    margin-bottom: 64px;
 }

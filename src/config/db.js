@@ -5,5 +5,5 @@ module.exports = new Pool ({
     password: '$ucesso.10',
     host: 'localhost',
     port: 5432,
-    database: 'my_teacher'
+    database: 'launchstoredb'
 })
