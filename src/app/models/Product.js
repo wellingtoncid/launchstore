@@ -81,7 +81,7 @@ module.exports = {
     search(params) {
         const { filter, category } = params
 
-        let query = "",
+        let query = ``,
             filterQuery = `WHERE`
 
         if (category) {
@@ -92,8 +92,8 @@ module.exports = {
 
         filterQuery = `
             ${filterQuery}
-            products.name ilike '%${filter}%'
-            OR products.description ilike '%${filter}%'
+            products.name ILIKE '%${filter}%'
+            OR products.description ILIKE '%${filter}%'
         `
 
         query = `

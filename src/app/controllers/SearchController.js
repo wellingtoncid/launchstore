@@ -1,6 +1,6 @@
-const { formatPrice } = require('../../lib/utils')
 const Product = require('../models/Product')
 const File = require('../models/File')
+const { formatPrice } = require('../../lib/utils')
 
 module.exports = {
     async index(req, res) {
@@ -49,7 +49,7 @@ module.exports = {
                 const found = categoriesFiltered.some(cat => cat.id == category.id)
 
                 if (!found)
-                categoriesFiltered.push(category)
+                    categoriesFiltered.push(category)
 
                 return categoriesFiltered
             }, [])
