@@ -11,9 +11,9 @@ routes.use('/products', products)
 routes.use('/users', users)
 
 // alias
-routes.get('/accounts', function (req, res) {
-    return res.redirect('/users/register')
-})
+
+routes.get('/ads/create', (req, res) => res.redirect('/products/create'))
+routes.get('/accounts', (req, res) => res.redirect('/users/register'))
 
 
 module.exports = routes 
