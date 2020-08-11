@@ -13,7 +13,7 @@ routes.use('/users', users)
 // alias
 
 routes.get('/ads/create', (req, res) => res.redirect('/products/create'))
-routes.get('/accounts', (req, res) => res.redirect('/users/register'))
+routes.get('/account', (req, res) => res.redirect('/users/login'))
 
 
 module.exports = routes 
