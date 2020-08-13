@@ -1,6 +1,7 @@
+const {hash} = require('bcryptjs')
+const { unlinkSync } = require('fs')
 const User = require('../models/User')
 const { formatCep, formatCpfCnpj } = require('../../lib/utils')
-const { update } = require('../models/Product')
 
 module.exports = {
     registerForm(req, res) {
@@ -8,20 +9,41 @@ module.exports = {
         return res.render("user/register")
     },
     async show(req, res) {
-       const { user } = req
+        try {
+            const { user } = req
 
-        user.cpf_cnpj = formatCpfCnpj(user.cpf_cnpj)
-        user.cep = formatCep(user.cep)
+            user.cpf_cnpj = formatCpfCnpj(user.cpf_cnpj)
+            user.cep = formatCep(user.cep)
 
-        return res.render('user/index', { user })
+            return res.render('user/index', { user })
+        } catch (error) {
+            console.error(error)
+        }
     },
-    async post(req, res) {
-       
-        const userId = await User.create(req.body)
+    async post(req, res) {  
+        try {
+            const { name, email, password, cpf_cnpj, cep, address } = req.body
 
-        req.session.userId = userId
+            password = await hash(password, 8)
+            cpf_cnpj = cpf_cnpj.replace(/\D/g, "")
+            cep = cep.replace(/\D/g, "")
+         
+            const userId = await User.create({
+                name,
+                email,
+                password,
+                cpf_cnpj,
+                cep,
+                address,
+            })
 
-        return res.redirect('/users')
+            req.session.userId = userId
+
+            return res.redirect('/users')
+
+        } catch (error) {
+            console.error(error)
+        }  
     },
     async update(req, res){
         try {
@@ -36,7 +58,7 @@ module.exports = {
                 email,
                 cpf_cnpj,
                 cep,
-                address
+                address,
             })
 
             return res.render('user/index', {
@@ -50,18 +72,32 @@ module.exports = {
                 erro: "Algo errado aconteceu!"
             })
         }
-        
-        // all fields
-
-        // has password
-
-        // password match
     },
     async delete(req, res) {
         try {
+            const products = Product.findAll({where: { user_id: req.body.id }})
+
+            // pegar a imagem dos produtos
+            const allFilesPromise = products.map(product => 
+                Product.files(product.id))
+
+            let promiseResults = await Promise.all(allFilesPromise)
+
+            // rodar a remoção do usuario
             await User.delete(req.body.id)
             req.session.destroy()
 
+            // remover as imagens da pasta public
+            promiseResults.map(results => {
+                results.rows.map(file => {
+                    try {
+                        unlinkSync(file.path)
+                    } catch(err) {
+                        console.error(err)
+                    }
+                })
+            })
+    
             return res.render('session/login', {
                 success: 'Conta excluída com sucesso!'
             })
@@ -73,7 +109,5 @@ module.exports = {
                 error: 'Erro ao cancelar a sua conta!'
             })
         }
-
-
     }
 }

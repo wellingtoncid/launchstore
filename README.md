@@ -160,8 +160,6 @@ $ git clone git@github.com:wellingtoncid/launchstore.git
 # Acesse a pasta do projeto no seu terminal/cmd
 $ cd launchstore
 
-# # Vá para a pasta da aplicação Front End
-# $ cd web
 # Instale as dependências
 $ npm install ou yarn install
 
