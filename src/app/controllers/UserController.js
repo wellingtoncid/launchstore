@@ -1,6 +1,8 @@
 const {hash} = require('bcryptjs')
 const { unlinkSync } = require('fs')
+
 const User = require('../models/User')
+const Product = require('../models/Product')
 const { formatCep, formatCpfCnpj } = require('../../lib/utils')
 
 module.exports = {
@@ -22,7 +24,7 @@ module.exports = {
     },
     async post(req, res) {  
         try {
-            const { name, email, password, cpf_cnpj, cep, address } = req.body
+            let { name, email, password, cpf_cnpj, cep, address } = req.body
 
             password = await hash(password, 8)
             cpf_cnpj = cpf_cnpj.replace(/\D/g, "")
@@ -75,7 +77,7 @@ module.exports = {
     },
     async delete(req, res) {
         try {
-            const products = Product.findAll({where: { user_id: req.body.id }})
+            const products = await Product.findAll({where: { user_id: req.body.id }})
 
             // pegar a imagem dos produtos
             const allFilesPromise = products.map(product => 
@@ -88,8 +90,8 @@ module.exports = {
             req.session.destroy()
 
             // remover as imagens da pasta public
-            promiseResults.map(results => {
-                results.rows.map(file => {
+            promiseResults.map(files => {
+                files.map(file => {
                     try {
                         unlinkSync(file.path)
                     } catch(err) {
