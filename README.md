@@ -23,7 +23,7 @@
  
 </p>
 <h1 align="center">
-    <img alt="Launchstore" title="#Launchstore" src="./assets/design.png" />
+    <img alt="Launchstore" title="#Launchstore" src="./assets/banner.png" />
 </h1>
 
 <h4 align="center"> 
@@ -101,9 +101,13 @@ Em planejamento para construção futura.
 ### Web
 
 <p align="center" style="display: flex; align-items: flex-start; justify-content: center;">
-  <img alt="Launchstore" title="#Launchstore" src="./assets/web-landing.png" width="400px">
+  <img alt="Launchstore" title="#Launchstore" src="./assets/web-launchstore-1.png" width="400px">
 
-  <img alt="Launchstore" title="#Launchstore" src="./assets/web-list.png" width="400px">
+  <img alt="Launchstore" title="#Launchstore" src="./assets/web-launchstore-2.png" width="400px">
+
+  <img alt="Launchstore" title="#Launchstore" src="./assets/web-launchstore-3.png" width="400px">
+
+  <img alt="Launchstore" title="#Launchstore" src="./assets/web-launchstore-4.png" width="400px">
 </p>
 
 ---

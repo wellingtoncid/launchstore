@@ -13,7 +13,6 @@ const email = (seller, product, buyer) => `
 <h2>Olá ${seller.name},</h2>
 <p>Boa notícia! Você vendeu!</p>
 <p>Produto: ${product.name}</p>
-<p>Quantidade: ${order.quantity} unid.</p>
 <p>Valor: ${product.formattedPrice} /unid.</p>
 <p><br/><br/></p>
 <h3>Envio</h3>
