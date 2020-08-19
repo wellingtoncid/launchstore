@@ -29,7 +29,6 @@ async function format(product) {
 }
 
 
-
 const LoadService = {
   load(service, filter) {
     this.filter = filter
@@ -50,6 +49,15 @@ const LoadService = {
       return Promise.all(ProductsPromise)
     } catch (error) {
       console.error(error)
+    }
+  },
+  async productWithDeleted() {
+    try {
+      let product = await Product.findOneWithDeleted(this.filter)
+      return format(product)
+
+    } catch (error) {
+      console.log(error)
     }
   },
   format,
