@@ -130,7 +130,7 @@ Execute este projeto com o comando npm start.
 
 Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
 [Git](https://git-scm.com), [Node.js](https://nodejs.org/en/). 
-Além disto é bom ter um editor para trabalhar com o código como [VSCode](https://code.visualstudio.com/)
+Além disto é bom ter um editor para trabalhar com o código, como por exemplo o [VSCode](https://code.visualstudio.com/).
 
 <!-- #### 🎲 Rodando o Backend (servidor)
 
@@ -196,7 +196,7 @@ As seguintes ferramentas foram usadas na construção do projeto:
 
 > Veja o arquivo  [package.json](https://github.com/wellingtoncid/launchstore/blob/master/package.json)
 
-#### [](https://github.com/wellingtoncid/launchstore#server-nodejs)**Server**  ([NodeJS](https://nodejs.org/en/)
+#### [](https://github.com/wellingtoncid/launchstore#server-nodejs)**Server**  ([NodeJS](https://nodejs.org/en/))  
 
 -   **[Express](https://expressjs.com/)**
 -   **[PostgreSQL](https://postgresql.org)**
@@ -206,9 +206,9 @@ As seguintes ferramentas foram usadas na construção do projeto:
 
 #### [](https://github.com/wellingtoncid/launchbase#utilit%C3%A1rios)**Utilitários**
 
--   Editor:  **[Visual Studio Code](https://code.visualstudio.com/)**  → Extensions:  **[SQLite](https://marketplace.visualstudio.com/items?itemName=alexcvzz.vscode-sqlite)**
+-   Editor:  **[Visual Studio Code](https://code.visualstudio.com/)**
 -   Markdown:  **[StackEdit](https://stackedit.io/)**,  **[Markdown Emoji](https://gist.github.com/rxaviers/7360908)**
--   Fontes:  **[Roboto](https://fonts.google.com/specimen/Roboto)**
+-   Fontes:  **[Roboto](https://fonts.google.com/specimen/Roboto)** **[Material icons](https://material.io)** 
 
 
 ---
