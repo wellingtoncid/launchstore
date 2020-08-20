@@ -101,6 +101,9 @@ Em planejamento para construção futura.
 ### Web
 
 <p align="center" style="display: flex; align-items: flex-start; justify-content: center;">
+
+  <img alt="Launchstore" title="#Launchstore" src="./assets/ecommerce.gif" width="400px">
+
   <img alt="Launchstore" title="#Launchstore" src="./assets/web-launchstore-1.png" width="400px">
 
   <img alt="Launchstore" title="#Launchstore" src="./assets/web-launchstore-2.png" width="400px">
@@ -114,10 +117,12 @@ Em planejamento para construção futura.
 
 ## 🚀 Como executar o projeto
 
-Este projeto é divido em três partes:
+Execute este projeto com o comando npm start.
+
+<!-- Este projeto é divido em três partes:
 1. Backend (pasta server) 
 2. Frontend (pasta web)
-3. Mobile (pasta mobile) / futuramente
+3. Mobile (pasta mobile) / futuramente -->
 
 <!-- 💡Tanto o Frontend quanto o Mobile precisam que o Backend esteja sendo executado para funcionar. -->
 
