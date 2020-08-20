@@ -102,7 +102,7 @@ Em planejamento para construção futura.
 
 <p align="center" style="display: flex; align-items: flex-start; justify-content: center;">
 
-  <img alt="Launchstore" title="#Launchstore" src="./assets/ecommerce.gif" width="400px">
+  <img alt="Launchstore" title="#Launchstore" src="./assets/ecommerce.gif" width="600px">
 
   <img alt="Launchstore" title="#Launchstore" src="./assets/web-launchstore-1.png" width="400px">
 
